@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ropaMujer.css">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+			<div class="section section1"><a href="#" id="menu_on">
+                
+                <span class="barras"></span>
+                <span class="barras"></span>
+                <span class="barras"></span>
+            	
+            </a>
+            <nav>	
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ropaHombre.html">Ropa de Hombre</a></li>
+                    <li><a href="ropaMujer.html">Ropa de mujer</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="section section2"><a href="index.html"><img src="imagenes/ddedaniel.jpg"></a></div>
+        <div class="section section3">
+          <div id="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            &nbsp;Buscar
+          </div>
+          <a href="formulario.html">
+            <div id="login">
+              <i class="fa-regular fa-user"></i>
+              &nbsp;Iniciar sesión
+            </div>
+          </a>
+          <div id="cesta">
+            <i class="fa-solid fa-bag-shopping"></i>
+            &nbsp;Cesta
+            
+          </div>
+        </div>
+        
+            
+		 </header>
+    </div>
+
+    <main id="app">
+    <div v-if="products.length > 0">
+      <div v-if="!selectedProduct">
+        <h1 id="titulo">Ropa de Mujer</h1>
+        <section class="prendas">
+        <div class="prenda" v-for="item in products" :key="item.id"  @click="showProductDetails(item)">
+          <img :src="item.image" :alt="item.title">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.price }} €</p>
+        </div>
+        <div class="prenda" v-for="item in products" :key="item.id"  @click="showProductDetails(item)">
+          <img :src="item.image" :alt="item.title">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.price }} €</p>
+        </div>
+      </section>
+      </div>
+    </div>
+
+
+       <!-- Mostrar detalle de producto -->
+       <div v-if="selectedProduct" >
+        <section class="product-details active">
+          <div>
+        <img :src="selectedProduct.image" :alt="selectedProduct.title" />
+          </div>
+        <div>
+        <h2>{{ selectedProduct.title }}</h2><br>
+        <p>{{ selectedProduct.description }}</p><br>
+        <p><b>Precio:</b> ${{ selectedProduct.price }}</p><br>
+        <ul>
+            <li><b>Unidades restantes:</b> {{ selectedProduct.rating.count }}</li><br>
+            <li><b>Calificación del producto:</b> {{ selectedProduct.rating.rate }}</li><br>
+        </ul>
+      <br>
+      <label for="talla">Selecciona tu talla: </label><br>
+        <select id="talla" name="talla" class="tallas">
+          <option value="XS">Extra Pequeña (XS) &nbsp; </option>
+          <option value="S">Pequeña (S) &nbsp;</option>
+          <option value="M">Mediana (M) &nbsp;</option>
+          <option value="L">Grande (L) &nbsp;</option>
+          <option value="XL">Extra Grande (XL) &nbsp;</option>
+        </select><br><br>
+        <button class="enter" @click="buyProduct(selectedProduct)">Añadir al carrito</button>
+        <br>
+      </div>
+      </section>
+    </div>
+    
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-main">
+          <div class="footer-section">
+            <h3>Ayuda</h3>
+            <p>Preguntas frecuentes</p>
+            <p>Cambios y devoluciones</p>
+            <p>Condiciones de compra</p>
+            <p>Plan de fidelización</p>
+          </div>
+          <div class="footer-section">
+            <h3>Nosotros</h3>
+            <p>Quienes somos</p>
+            <p>Política de cookies</p>
+            <p>Política de privacidad</p>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <p>Aviso legal</p>
+            <p>Términos y condiciones</p>
+            <p>Protección de datos</p>
+          </div>
+          <div class="footer-section">
+            <h3>Métodos de Pago</h3>
+            <i class="fa-brands fa-cc-mastercard fa-2xl"></i>
+            <i class="fa-brands fa-cc-visa fa-2xl"></i>
+            <i class="fa-brands fa-paypal fa-2xl"></i>
+            <i class="fa-brands fa-google-pay fa-2xl"></i>
+          </div>
+        </div>
+        <div class="footer-secondary">
+          <div class="footer-subsection1">
+            <h3 id="name-footer">Nombre</h3>
+            <h4>de la tienda</h4>
+          </div>
+          <div class="footer-subsection2">
+            <h4>Daniel Escobar || 2023. Todos los derechos reservados.</h4>
+          </div>
+          <div class="footer-subsection3">
+            <i class="fa-brands fa-instagram fa-2xl"></i>
+            <i class="fa-brands fa-facebook fa-2xl"></i>
+            <i class="fa-brands fa-twitter fa-2xl"></i>
+            <i class="fa-brands fa-tiktok fa-2xl"></i>
+            <i class="fa-brands fa-youtube fa-2xl"></i>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        const app = Vue.createApp({
+      data() {
+        return {
+          products: [],
+          categories: [],
+          selectedCategory: '',
+          filteredProducts: [],
+          selectedSort: '',
+          selectedProduct: null,
+          addedToCartMessage: '',
+          cart: [],
+          showCart: false
+        };
+      },
+      methods: {
+        showProductDetails(product) {
+                    this.selectedProduct = product;
+                    this.addedToCartMessage = '';
+                },
+                closeProductDetails() {
+                    this.selectedProduct = null;
+                },
+  
+      },
+      mounted() {
+          fetch('https://fakestoreapi.com/products/category/women%27s%20clothing')
+            .then(response => response.json())
+            .then(data => {
+              this.products = data;
+            })
+            .catch(error => {
+              console.error('Error fetching products:', error);
+            });
+        },
+    });
+    
+    app.mount('#app');
+      </script>
+      <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+      <script src="https://kit.fontawesome.com/8fd2dbd2a5.js" crossorigin="anonymous"></script>
+      <script src="hamburguesa.js"></script>
+</body>
+</html>

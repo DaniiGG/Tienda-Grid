@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@247&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/vue@next"></script>
+
+
+
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+			<div class="section section1"><a href="#" id="menu_on">
+                
+                <span class="barras"></span>
+                <span class="barras"></span>
+                <span class="barras"></span>
+            	
+            </a>
+            <nav>	
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="ropaHombre.html">Ropa de Hombre</a></li>
+                    <li><a href="ropaMujer.html">Ropa de mujer</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="section section2"><a href="index.html"><img src="imagenes/ddedaniel.jpg"></a></div>
+        <div class="section section3">
+          <div id="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            &nbsp;Buscar
+          </div>
+          <a href="formulario.html">
+          <div id="login">
+            <i class="fa-regular fa-user"></i>
+            &nbsp;Iniciar sesión
+          </div>
+        </a>
+          <div id="cesta">
+            <i class="fa-solid fa-bag-shopping"></i>
+            &nbsp;Cesta
+            
+          </div>
+        </div>
+        
+            
+		 </header>
+    </div>
+            <main>
+              <section class="tipo-ropa">
+              <a href="ropaHombre.html">
+                <div class="parte hombre">
+                  <figcaption class="etiqueta"><h1>Ropa de hombre</h1></figcaption>
+                  <div><img src="imagenes/man-1866572_1280.jpg" alt="Imagen de mujer"></div>
+                </div>
+              </a>
+                <a href="ropaMujer.html">
+                <div class="parte mujer">
+                  <figcaption class="etiqueta"><h1>Ropa de mujer</h1></figcaption>
+                  <div><img src="imagenes/woman-6496881_1280.jpg" alt="Imagen de mujer"></div>
+                </div>
+              </a>
+              </section>
+              
+              
+
+            <section id="container-slider">	
+                <a href="javascript: funcionEjecutar('anterior');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
+                <a href="javascript: funcionEjecutar('siguiente');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
+                <ul class="listslider">
+                  <li><a itlist="itList_0" class="item-select-slid"></a></li>
+                  <li><a itlist="itList_1"></a></li>
+                  <li><a itlist="itList_2"></a></li>
+                </ul>
+                <ul id="slider">
+                  <li style="background-image: url('imagenes/01.jpg'); z-index:0; opacity: 1;">
+                    <div class="content_slider" >
+                      <div>
+                        <h2>Temporada de invierno</h2>
+                    <p>¡Ya ha llegado la navidad, <br>y con ella nuestra temporada de invierno!</p><br>
+                    <a href="" target="_blank" class="btnSlider">¡Echa un vistazo!</a>
+                  </div>
+                    </div>
+                  </li>
+                  <li style="background-image: url('imagenes/02.jpg'); ">
+                    <div class="content_slider" >
+                      <div>
+                        <h2>Maravillosos descuentos</h2>
+                    <p>¡Estás de suerte!, echa un vistazo a estos impresionantes descuentos</p><br>
+                    <a href="" target="_blank" class="btnSlider">¡Echa un vistazo!</a>
+                  </div>
+                    </div>
+                  </li>
+                  <li style="background-image: url('imagenes/03.jpg'); ">
+                    <div class="content_slider" >
+                      <div>
+                        <h2>Regala elegancia</h2>
+                    <p>Esta navidad haz el mejor regalo de todos</p>
+                    <a href="" target="_blank" class="btnSlider">¡Echa un vistazo!</a>
+                  </div>
+                    </div>
+                  </li>
+               </ul>
+             </section>
+
+
+             <section class="banner">
+              <div id="banner-content">
+              <h2>¡Descuentos Especiales!</h2>
+              <p>Aprovecha nuestros descuentos antes de que se agoten</p>
+              <p><a href="#" class="btn-banner">Ver ofertas</a></p>
+            </div>
+            </section>
+
+             
+
+             
+             
+    </main>
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="footer-section">
+          <h3>Ayuda</h3>
+          <p>Preguntas frecuentes</p>
+          <p>Cambios y devoluciones</p>
+          <p>Condiciones de compra</p>
+          <p>Plan de fidelización</p>
+        </div>
+        <div class="footer-section">
+          <h3>Nosotros</h3>
+          <p>Quienes somos</p>
+          <p>Política de cookies</p>
+          <p>Política de privacidad</p>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <p>Aviso legal</p>
+          <p>Términos y condiciones</p>
+          <p>Protección de datos</p>
+        </div>
+        <div class="footer-section">
+          <h3>Métodos de Pago</h3>
+          <i class="fa-brands fa-cc-mastercard fa-2xl"></i>
+          <i class="fa-brands fa-cc-visa fa-2xl"></i>
+          <i class="fa-brands fa-paypal fa-2xl"></i>
+          <i class="fa-brands fa-google-pay fa-2xl"></i>
+        </div>
+      </div>
+      <div class="footer-secondary">
+        <div class="footer-subsection1">
+          <h3 id="name-footer">Nombre</h3>
+          <h4>de la tienda</h4>
+        </div>
+        <div class="footer-subsection2">
+          <h4>Daniel Escobar || 2023. Todos los derechos reservados.</h4>
+        </div>
+        <div class="footer-subsection3">
+          <i class="fa-brands fa-instagram fa-2xl"></i>
+          <i class="fa-brands fa-facebook fa-2xl"></i>
+          <i class="fa-brands fa-twitter fa-2xl"></i>
+          <i class="fa-brands fa-tiktok fa-2xl"></i>
+          <i class="fa-brands fa-youtube fa-2xl"></i>
+        </div>
+      </div>
+    </footer>
+    <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://kit.fontawesome.com/8fd2dbd2a5.js" crossorigin="anonymous"></script>
+    <script src="hamburguesa.js"></script>
+    <script src="carrusel.js"></script>
+    
+</body>
+</html>
