@@ -1,6 +1,6 @@
 //--------------------HAMBURGUESA-------------------------------
 
-	$(document).ready(function() {
+jQuery(document).ready(function($) {
     let blanco = true; // Establecemos un indicador de color inicial
 
     $('#menu_on').click(function() {
